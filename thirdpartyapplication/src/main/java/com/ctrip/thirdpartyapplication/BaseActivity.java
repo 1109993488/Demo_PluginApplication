@@ -1,6 +1,7 @@
 package com.ctrip.thirdpartyapplication;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -22,6 +23,10 @@ public class BaseActivity extends Activity implements AppInterface {
 
     protected Activity that;
 
+    public BaseActivity() {
+        this.that = this;
+    }
+
     @Override
     public void attach(@NotNull Activity activity) {
         //上下文注入进来了
@@ -30,7 +35,7 @@ public class BaseActivity extends Activity implements AppInterface {
 
     @Override
     public ClassLoader getClassLoader() {
-        if (that == null) {
+        if (that == this) {
             return super.getClassLoader();
         } else {
             return that.getClassLoader();
@@ -40,7 +45,7 @@ public class BaseActivity extends Activity implements AppInterface {
     @NonNull
     @Override
     public LayoutInflater getLayoutInflater() {
-        if (that == null) {
+        if (that == this) {
             return super.getLayoutInflater();
         } else {
             return that.getLayoutInflater();
@@ -50,7 +55,7 @@ public class BaseActivity extends Activity implements AppInterface {
 
     @Override
     public WindowManager getWindowManager() {
-        if (that == null) {
+        if (that == this) {
             return super.getWindowManager();
         } else {
             return that.getWindowManager();
@@ -59,7 +64,7 @@ public class BaseActivity extends Activity implements AppInterface {
 
     @Override
     public Window getWindow() {
-        if (that == null) {
+        if (that == this) {
             return super.getWindow();
         } else {
             return that.getWindow();
@@ -67,44 +72,44 @@ public class BaseActivity extends Activity implements AppInterface {
     }
 
     public void onCreate(@Nullable Bundle savedInstanceState) {
-        if (that == null) {
+        if (that == this) {
             super.onCreate(savedInstanceState);
         }
     }
 
     public void onStart() {
-        if (that == null) {
+        if (that == this) {
             super.onStart();
         }
     }
 
     public void onResume() {
-        if (that == null) {
+        if (that == this) {
             super.onResume();
         }
     }
 
     public void onPause() {
-        if (that == null) {
+        if (that == this) {
             super.onPause();
         }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        if (that == null) {
+        if (that == this) {
             super.onSaveInstanceState(outState);
         }
     }
 
     public void onStop() {
-        if (that == null) {
+        if (that == this) {
             super.onStop();
         }
     }
 
     public void onDestroy() {
-        if (that == null) {
+        if (that == this) {
             super.onDestroy();
         }
     }
@@ -114,7 +119,7 @@ public class BaseActivity extends Activity implements AppInterface {
      */
     @Override
     public void setContentView(int layoutResID) {
-        if (that == null) {
+        if (that == this) {
             super.setContentView(layoutResID);
         } else {
             that.setContentView(layoutResID);
@@ -123,10 +128,19 @@ public class BaseActivity extends Activity implements AppInterface {
 
     @Override
     public <T extends View> T findViewById(int id) {
-        if (that == null) {
+        if (that == this) {
             return super.findViewById(id);
         } else {
             return that.findViewById(id);
+        }
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        if (that == this) {
+            super.startActivity(intent);
+        } else {
+            that.startActivity(intent);
         }
     }
 }

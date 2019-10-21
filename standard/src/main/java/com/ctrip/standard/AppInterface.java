@@ -2,7 +2,6 @@ package com.ctrip.standard;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 
 /**
  * @author Zhenhua on 2018/3/7.
@@ -29,8 +28,4 @@ public interface AppInterface {
     void onStop();
 
     void onDestroy();
-
-    void setContentView(int layoutResID);
-
-    <T extends View> T findViewById(int id);
 }

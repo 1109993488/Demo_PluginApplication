@@ -1,6 +1,8 @@
 package com.ctrip.pluginapplication;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -104,6 +106,14 @@ public class ProxyActivity extends Activity {
     public Resources getResources() {
         //不用系统的resources，自己实现一个resources
         return PluginManager.getInstance().getResources();
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        final String pluginClassName = intent.getComponent().getClassName();
+        intent.setComponent(new ComponentName(this, ProxyActivity.class));
+        intent.putExtra("className", pluginClassName);
+        super.startActivity(intent);
     }
 
 }
