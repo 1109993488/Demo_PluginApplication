@@ -1,3 +1,6 @@
+## boke 
+https://blog.csdn.net/colinandroid/article/details/79431502
+
 ###背景
 Android插件化作为每个合格的Android程序员都必须会的技术，被各大厂广泛使用。随着各大厂对移动互联网的垄断，我们渐渐发现app集成的功能越来越多。比如如下几个app（携程、淘宝、支付宝）：
 <img src="http://img.blog.csdn.net/20180303170318440?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY29saW5hbmRyb2lk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="30%" height="30%" /> <img src="http://img.blog.csdn.net/20180303170440044?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY29saW5hbmRyb2lk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="30%" height="30%" /> <img src="http://img.blog.csdn.net/20180303170456493?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY29saW5hbmRyb2lk/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" width="30%" height="30%" />
